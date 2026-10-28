@@ -4,6 +4,7 @@ coverage/
 .firebase/
 .DS_Store
 *.log
+*.tsbuildinfo
 
 .env
 .env.*
@@ -13,4 +14,3 @@ coverage/
 # Local Google and Firebase credentials
 application_default_credentials.json
 service-account*.json
-
