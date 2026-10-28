@@ -1,0 +1,27 @@
+{
+  "name": "aos-campaign-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Friends-only campaign and army tracker",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "pnpm -r --workspace-concurrency=1 build",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "dev:api": "pnpm --filter @aos/shared build && pnpm --filter @aos/api dev",
+    "dev:web": "pnpm --filter @aos/web dev",
+    "lint": "eslint .",
+    "test": "pnpm --filter @aos/shared build && pnpm -r --if-present test",
+    "typecheck": "pnpm -r --if-present typecheck"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1"
+  }
+}
+

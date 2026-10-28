@@ -1,0 +1,8 @@
+.git
+.github
+.firebase
+**/.env
+**/dist
+**/node_modules
+coverage
+
