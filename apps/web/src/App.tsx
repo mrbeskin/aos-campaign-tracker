@@ -1,98 +1,153 @@
-const campaignSteps = [
-  { label: "Forge an army", state: "available" },
-  { label: "Enter the wilds", state: "locked" },
-  { label: "Record the battle", state: "locked" },
+const ledgerSections = [
+  {
+    accent: "charcoal",
+    eyebrow: "Order of Battle",
+    title: "Armies",
+    copy: "Create and maintain Path to Glory rosters for every force in the group.",
+    status: "Sign in to view",
+  },
+  {
+    accent: "ochre",
+    eyebrow: "Campaign Record",
+    title: "Campaigns",
+    copy: "Join a campaign pack, follow its battleplan map, and mark each completed path.",
+    status: "Sign in to view",
+  },
+  {
+    accent: "teal",
+    eyebrow: "Annals of War",
+    title: "Battles",
+    copy: "Record points, results, and the events that shaped each army's story.",
+    status: "Sign in to view",
+  },
 ];
 
 export function App() {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="Path Ledger home">
-          <span className="brand-mark" aria-hidden="true">
-            PL
+        <a className="brand" href="#ledger" aria-label="Path Ledger home">
+          <span className="brand-seal" aria-hidden="true">
+            <span>PL</span>
           </span>
-          <span>
+          <span className="brand-copy">
             <strong>Path Ledger</strong>
-            <small>Narrative campaign tracker</small>
+            <small>Age of Sigmar Path to Glory Campaign Tracker</small>
           </span>
         </a>
         <button className="sign-in-button" type="button" disabled>
-          Google sign-in coming next
+          <span className="button-rune" aria-hidden="true">✦</span>
+          Google sign-in
+          <small>Coming in Phase 1</small>
         </button>
       </header>
 
-      <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <p className="eyebrow">Your armies. Your battles. One living chronicle.</p>
-            <h1 id="hero-title">Chart a path through the wilds.</h1>
-            <p className="hero-lede">
-              Build a free-form Path to Glory roster, invite a friend, and follow
-              every victory, defeat, and turning point across a branching campaign.
+      <main id="ledger">
+        <div className="cloth-banner" aria-hidden="true" />
+        <section className="ledger-sheet" aria-labelledby="ledger-title">
+          <div className="sheet-ornament" aria-hidden="true">
+            <span />
+            <i>✦</i>
+            <span />
+          </div>
+
+          <div className="sheet-heading">
+            <p>Campaign access</p>
+            <h1 id="ledger-title">Path Ledger</h1>
+            <div className="title-rule" aria-hidden="true">
+              <span>◆</span>
+            </div>
+            <p className="sheet-subtitle">
+              Age of Sigmar Path to Glory Campaign Tracker
             </p>
-            <div className="hero-actions">
-              <button type="button" className="primary-action" disabled>
-                Create your first army
-              </button>
-              <a href="#foundation">View the foundation</a>
-            </div>
           </div>
 
-          <aside className="campaign-card" aria-label="Campaign route preview">
-            <div className="card-heading">
-              <div>
-                <p>Campaign preview</p>
-                <h2>Blighted Wilds</h2>
+          <div className="briefing-grid">
+            <section className="access-panel" aria-labelledby="access-title">
+              <div className="rules-band rules-band-crimson">
+                <span aria-hidden="true">✦</span>
+                <h2 id="access-title">Enter the Ledger</h2>
               </div>
-              <span className="status-pill">Foundation</span>
-            </div>
-            <ol className="route-preview">
-              {campaignSteps.map((step, index) => (
-                <li key={step.label} className={step.state}>
-                  <span className="route-number">{index + 1}</span>
-                  <span>{step.label}</span>
-                </li>
-              ))}
-            </ol>
-            <div className="card-footer">
-              <span>12 battleplans</span>
-              <span>19 routes</span>
-              <span>2 players</span>
-            </div>
-          </aside>
-        </section>
+              <div className="panel-body">
+                <p className="drop-cap">
+                  This ledger belongs to our gaming group. Sign in with your Google
+                  account to view your armies, join a campaign, and record battle
+                  results with the other players.
+                </p>
+                <p>
+                  New accounts will only see campaigns they have been invited to join.
+                </p>
+                <button className="primary-action" type="button" disabled>
+                  Continue with Google
+                  <small>Authentication is the next build phase</small>
+                </button>
+              </div>
+            </section>
 
-        <section className="foundation" id="foundation" aria-labelledby="foundation-title">
-          <div>
-            <p className="eyebrow">Phase 0</p>
-            <h2 id="foundation-title">The campaign foundation is in place.</h2>
+            <aside className="campaign-docket" aria-labelledby="docket-title">
+              <div className="rules-band rules-band-charcoal">
+                <span aria-hidden="true">◇</span>
+                <h2 id="docket-title">Campaign Docket</h2>
+              </div>
+              <div className="docket-body">
+                <p className="docket-label">Campaign pack prepared</p>
+                <h3>Blighted Wilds</h3>
+                <dl>
+                  <div>
+                    <dt>Battleplans</dt>
+                    <dd>12</dd>
+                  </div>
+                  <div>
+                    <dt>Mapped routes</dt>
+                    <dd>19</dd>
+                  </div>
+                  <div>
+                    <dt>Players</dt>
+                    <dd>2+</dd>
+                  </div>
+                  <div>
+                    <dt>Status</dt>
+                    <dd>Awaiting muster</dd>
+                  </div>
+                </dl>
+              </div>
+            </aside>
           </div>
-          <div className="feature-grid">
-            <article>
-              <span aria-hidden="true">01</span>
-              <h3>Reusable armies</h3>
-              <p>One living roster can enter many campaigns without losing its identity.</p>
-            </article>
-            <article>
-              <span aria-hidden="true">02</span>
-              <h3>Confirmed results</h3>
-              <p>Both players submit the battle record before the campaign advances.</p>
-            </article>
-            <article>
-              <span aria-hidden="true">03</span>
-              <h3>Versioned paths</h3>
-              <p>Campaign packs keep their own immutable graph, routes, and rules.</p>
-            </article>
+
+          <section className="ledger-index" aria-labelledby="index-title">
+            <header>
+              <p>Contents of the ledger</p>
+              <h2 id="index-title">Campaign Records</h2>
+            </header>
+            <div className="record-grid">
+              {ledgerSections.map((section) => (
+                <article key={section.title}>
+                  <div className={`rules-band rules-band-${section.accent}`}>
+                    <span aria-hidden="true">◆</span>
+                    <p>{section.eyebrow}</p>
+                  </div>
+                  <div className="record-body">
+                    <h3>{section.title}</h3>
+                    <p>{section.copy}</p>
+                    <span className="record-status">{section.status}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <div className="sheet-ornament sheet-ornament-bottom" aria-hidden="true">
+            <span />
+            <i>✦</i>
+            <span />
           </div>
         </section>
       </main>
 
       <footer>
-        <p>Original campaign-tracking interface for private play between friends.</p>
-        <span>Phase 0 · Foundation</span>
+        <p>Friends' campaign ledger</p>
+        <span>Authentication and army rosters are next</span>
       </footer>
     </div>
   );
 }
-
